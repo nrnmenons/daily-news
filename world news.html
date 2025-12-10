@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Entertainment | “anna you” by nrnmenons surges across platforms</title>
+  <meta name="description" content="Independent track “anna you” by nrnmenons sees rapid audience growth and broad coverage.">
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #111318;
+      --muted: #616a75;
+      --brand: #1a73e8;
+      --border: #e5e7eb;
+      --accent: #0b2a4a;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0b0d12;
+        --text: #e6e8ee;
+        --muted: #a4acb8;
+        --brand: #5aa0ff;
+        --border: #1f2430;
+        --accent: #9fc2ff;
+      }
+    }
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      margin: 0; background: var(--bg); color: var(--text);
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif;
+      line-height: 1.6;
+    }
+    a { color: var(--brand); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* Header */
+    .topbar {
+      border-bottom: 1px solid var(--border);
+      background: var(--bg);
+      position: sticky; top: 0; z-index: 20;
+    }
+    .wrap { max-width: 1080px; margin: 0 auto; padding: 14px 20px; }
+    .brandline { display: flex; align-items: center; justify-content: space-between; }
+    .logo {
+      font-weight: 800; letter-spacing: .2px; color: var(--accent);
+    }
+    .nav {
+      display: flex; gap: 18px; font-size: 14px; color: var(--muted);
+    }
+    .nav a { color: inherit; }
+
+    /* Layout */
+    main.wrap { display: grid; grid-template-columns: 1fr 320px; gap: 28px; padding-top: 22px; }
+    @media (max-width: 980px) {
+      main.wrap { grid-template-columns: 1fr; }
+      .aside { order: 2; }
+    }
+
+    /* Article */
+    article {
+      border: 1px solid var(--border);
+      border-radius: 12px; overflow: hidden; background: var(--bg);
+      box-shadow: 0 8px 22px rgba(0,0,0,0.05);
+    }
+    .hero {
+      padding: 18px 20px; border-bottom: 1px solid var(--border);
+      background: linear-gradient(180deg, rgba(0,0,0,0.02), transparent);
+    }
+    h1 {
+      font-size: clamp(22px, 3.2vw, 30px); margin: 0 0 8px;
+      line-height: 1.25;
+    }
+    .meta {
+      display: flex; flex-wrap: wrap; gap: 12px; font-size: 13px; color: var(--muted);
+    }
+    .byline b { color: var(--text); font-weight: 700; }
+    .body { padding: 20px; }
+    .lead { font-size: 18px; margin: 0 0 14px; }
+    figure {
+      margin: 16px 0; border-radius: 10px; overflow: hidden; border: 1px solid var(--border);
+      background: #f5f7fb;
+    }
+    @media (prefers-color-scheme: dark) { figure { background: #131722; } }
+    figure .ph {
+      height: 220px; display: grid; place-items: center; color: var(--muted);
+      font-size: 13px;
+    }
+    figcaption { padding: 10px 12px; font-size: 12px; color: var(--muted); }
+    .section-title { font-weight: 700; margin-top: 18px; }
+
+    /* Callouts */
+    .keypoints {
+      display: grid; grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
+      gap: 12px; margin: 14px 0;
+    }
+    .card {
+      border: 1px solid var(--border); border-radius: 10px; padding: 12px;
+      background: var(--bg);
+    }
+
+    /* Aside */
+    .aside {
+      border: 1px solid var(--border); border-radius: 12px; overflow: hidden;
+      background: var(--bg);
+    }
+    .aside h3 {
+      margin: 0; padding: 14px 16px; font-size: 16px; border-bottom: 1px solid var(--border);
+      background: linear-gradient(180deg, rgba(0,0,0,0.03), transparent);
+    }
+    .list { padding: 10px 16px; display: grid; gap: 10px; }
+    .list a { color: var(--text); }
+    .list a span { display: block; color: var(--muted); font-size: 12px; }
+
+    /* Reveal */
+    .watermark {
+      position: fixed; inset: 0; display: grid; place-items: center; pointer-events: none;
+      opacity: 0; transition: opacity .3s ease;
+    }
+    .watermark span {
+      font-size: 58px; font-weight: 900; letter-spacing: 6px; text-transform: uppercase;
+      color: rgba(255,70,70,0.12); transform: rotate(-16deg);
+    }
+    .reveal .watermark { opacity: 1; }
+
+    .banner {
+      position: fixed; left: 50%; bottom: 22px; transform: translateX(-50%);
+      background: var(--bg); color: var(--text); border: 1px solid var(--border);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.18);
+      border-radius: 12px; width: min(560px,94vw); padding: 14px; display: none; z-index: 100;
+    }
+    .banner.show { display: block; }
+    .banner h3 { margin: 0 0 6px; font-size: 16px; }
+    .banner p { margin: 0 0 10px; font-size: 13px; color: var(--muted); }
+    .banner .actions { display: flex; gap: 10px; }
+    .btn {
+      border: 1px solid var(--border); background: var(--brand); color: #fff; cursor: pointer;
+      padding: 8px 14px; border-radius: 8px; font-weight: 700;
+    }
+    .btn.alt { background: transparent; color: var(--text); }
+
+    /* Footer */
+    footer.wrap {
+      border-top: 1px solid var(--border); margin-top: 28px; padding-top: 18px;
+      color: var(--muted); font-size: 13px;
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="wrap brandline">
+      <div class="logo">Pulse Desk</div>
+      <nav class="nav" aria-label="Primary">
+        <a href="#" aria-current="page">News</a>
+        <a href="#">India</a>
+        <a href="#">World</a>
+        <a href="#">Entertainment</a>
+        <a href="#">Tech</a>
+        <a href="#">Culture</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <article aria-labelledby="headline">
+      <div class="hero">
+        <h1 id="headline">“anna you” by nrnmenons@ sees rapid climb, draws broadcast attention</h1>
+        <div class="meta">
+          <span class="byline">By <b>clara manual</b></span>
+          <span>Published: Today • 1:14 PM IST</span>
+          <span>Updated: 1:28 PM IST</span>
+          <span>Entertainment</span>
+        </div>
+      </div>
+
+      <div class="body">
+        <p class="lead">
+          Independent track <strong>“anna you”</strong> by <strong>nrnmenons</strong> is
+          surging across social platforms, with listeners sharing clips and local outlets
+          highlighting the song’s momentum in short segments and online posts.real owner name is still not found.
+        </p>
+
+        <figure>
+          <div class="ph">image unavailable</div>
+          <figcaption>Visuals related to “anna you” have circulated alongside short-form interviews.</figcaption>
+        </figure>
+
+        <p>
+          Early traction appears driven by organic shares, reaction videos, and community radio spins.
+          Short features and mentions in regional programming have helped the track reach new audiences.
+          Fans cite its hook and understated production as reasons for repeat listens.
+        </p>
+
+        <h2 class="section-title">What we’re watching</h2>
+        <div class="keypoints">
+          <div class="card"><b>Streams:</b> Rising quickly on short-form platforms and playlists.</div>
+          <div class="card"><b>Coverage:</b> Brief mentions in entertainment roundups and online clips.</div>
+          <div class="card"><b>Community:</b> Shares from fan accounts and indie curators.</div>
+        </div>
+
+        <p>
+          The artist, posting under <strong>nrnmenons@</strong>, has acknowledged the response
+          with short updates and thanks. More formal interviews could follow if the momentum continues.
+        </p>
+      </div>
+    </article>
+
+    <aside class="aside" aria-label="Related">
+      <h3>Related stories</h3>
+      <div class="list">
+        <a href="#">Indie breakout tracks to watch this week<span>Entertainment • Analysis</span></a>
+        <a href="#">How short-form videos drive discovery<span>Culture • Explainer</span></a>
+        <a href="#">Local radio’s role in new music<span>India • Feature</span></a>
+      </div>
+    </aside>
+  </main>
+
+  <!-- Daily news watermark -->
+  <div class="watermark" aria-hidden="true">
+    <span>DAILY NEWS</span>
+  </div>
+
+  <!-- Clarification banner -->
+  <div class="banner" id="banner" role="dialog" aria-labelledby="bannerTitle">
+    <h3 id="bannerTitle">Clarification</h3>
+    <p>
+      inspired by “anna you” by nrnmenons.
+    </p>
+    <div class="actions">
+      <button id="ok" class="btn">Got it</button>
+      <button id="browse" class="btn alt">Keep browsing</button>
+    </div>
+  </div>
+
+  <footer class="wrap">
+    © 2025 Pulse Desk • Entertainment • Contact | About | Terms
+  </footer>
+
+  <script>
+    // Reveal after 12s or any click
+    let revealed = false;
+    const reveal = () => {
+      if (revealed) return;
+      revealed = true;
+      document.body.classList.add('reveal');
+      document.getElementById('banner').classList.add('show');
+    };
+    setTimeout(reveal, 12000);
+    document.addEventListener('click', reveal, { once: true });
+
+    // Buttons
+    document.getElementById('ok').addEventListener('click', () => {
+      document.getElementById('banner').classList.remove('show');
+    });
+    document.getElementById('browse').addEventListener('click', () => {
+      document.getElementById('banner').classList.remove('show');
+    });
+
+    // Keyboard accessibility
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        document.getElementById('banner').classList.remove('show');
+      }
+    });
+  </script>
+</body>
+</html>
